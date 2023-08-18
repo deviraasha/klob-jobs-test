@@ -10,7 +10,7 @@ export default function appReducer(state, action) {
       const updatedEmployee = action.payload;
 
       const updatedEmployees = state.employees.map((employee) => {
-        if (employee.id === updatedEmployee.id) {
+        if (employee.jobVacancyCode === updatedEmployee.jobVacancyCode) {
           return updatedEmployee;
         }
         return employee;
@@ -25,7 +25,7 @@ export default function appReducer(state, action) {
       return {
         ...state,
         employees: state.employees.filter(
-          (employee) => employee.id !== action.payload
+          (employee) => employee.jobVacancyCode !== action.payload
         ),
       };
 

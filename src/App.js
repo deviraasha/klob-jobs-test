@@ -1,17 +1,24 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { GlobalProvider } from "./context/GlobalState";
-import { Home } from "./components/home";
+import { List } from "./components/list";
+import AddNew from "./components/AddNew";
+import { Navbar } from "./components/Navbar";
+import Detail from "./components/Detail";
+import Edit from "./components/Edit";
 
 function App() {
   return (
     <GlobalProvider>
-      <div className="App">
-        <BrowserRouter>
+      <BrowserRouter>
+        <Navbar>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<List />} />
+            <Route path="/addNew" element={<AddNew />} />
+            <Route path="/edit/:id" element={<Edit />} />
+            <Route path="/detail/:id" element={<Detail />} />
           </Routes>
-        </BrowserRouter>
-      </div>
+        </Navbar>
+      </BrowserRouter>
     </GlobalProvider>
   );
 }
